@@ -1,0 +1,43 @@
+{
+  "name": "zumba/beeper",
+  "require": {
+    "php": ">=5.5",
+    "psr/log": "~1.0",
+    "zumba/log": ">=0.1",
+    "guzzlehttp/guzzle": "^6.1"
+  },
+  "require-dev": {
+    "php": ">= 5.5",
+    "symfony/phpunit-bridge": "^3.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Zumba\\Beeper\\": "src"
+    },
+    "exclude_from_classmap": [
+      "tests/"
+    ]
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Zumba\\Beeper\\Tests\\": "tests"
+    }
+  },
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "git@bitbucket.org:gzumba/zumba-log.git"
+    }
+  ],
+  "bin": [
+    "bin/beeper"
+  ],
+  "description": "Beeper.io API client",
+  "authors": [
+    {
+      "name": "Marko H. Tamminen",
+      "email": "zumba@iki.fi"
+    }
+  ],
+  "license": "MIT"
+}

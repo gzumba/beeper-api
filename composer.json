@@ -1,5 +1,5 @@
 {
-  "name": "zumba/beeper",
+  "name": "gzumba/beeper",
   "require": {
     "php": ">=5.5",
     "psr/log": "~1.0",

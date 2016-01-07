@@ -52,7 +52,9 @@ class BeeperClient implements LoggerAwareInterface
 
 		$this->logInfo("Sending text message to {phone}", $data);
 
-		return $this->guzzle->send($request);
+		$response = $this->guzzle->send($request);
+
+		return json_decode($response->getBody(), true);
 	}
 
 	/**
@@ -243,7 +245,6 @@ class BeeperClient implements LoggerAwareInterface
 
 		$body = json_encode($data);
 
-		dump($body);
 		$request = new Request('POST', 'webhooks', $this->buildHeaders(), $body);
 
 		return $this->guzzle->send($request);

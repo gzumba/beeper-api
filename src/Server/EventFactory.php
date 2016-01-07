@@ -5,6 +5,7 @@ use GuzzleHttp\Client;
 use GuzzleHttp\Psr7\Request;
 use Psr\Log\LoggerAwareInterface;
 use Zumba\Beeper\Server\Event\BeeperEvent;
+use Zumba\Beeper\Server\Event\DialogPositiveAnswerEvent;
 use Zumba\Log\LoggingI;
 use Zumba\Log\LoggingTrait;
 
@@ -27,7 +28,9 @@ class EventFactory implements LoggerAwareInterface
 		switch($data['event'])
 		{
 			case BeeperEvent::DIALOG_POSITIVE_ANSWER:
-				return new DialogPositiveAnswer($data['body']);
+				return new DialogPositiveAnswerEvent($data['body']);
+			case BeeperEvent::DIALOG_NEGATIVE_ANSWER:
+				return new DialogPositiveAnswerEvent($data['body']);
 			default:
 				$this->logWarn("Unsupported event {event}", ['event' => $data['event']]);
 				throw new \InvalidArgumentException("Unsupported event {$data['event']}");

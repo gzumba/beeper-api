@@ -2,12 +2,11 @@
 namespace Zumba\Beeper\Server\Event;
 
 
-class DialogPositiveAnswerEvent extends DialogAnswerEvent
+class DialogNegativeAnswerEvent extends DialogAnswerEvent
 {
-
 	public function isPositive()
 	{
-		return true;
+		return false;
 	}
 
 

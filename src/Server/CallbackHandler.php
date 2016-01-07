@@ -2,6 +2,9 @@
 namespace Zumba\Beeper\Server;
 
 
+use Zumba\Beeper\Server\Event\DialogNegativeAnswerEvent;
+use Zumba\Beeper\Server\Event\DialogPositiveAnswerEvent;
+
 class CallbackHandler
 {
 	/**
@@ -22,5 +25,17 @@ class CallbackHandler
 	public function handle(array $data)
 	{
 		$event = $this->eventFactory->buildEvent($data);
+
+		if( $event instanceof DialogPositiveAnswerEvent )
+		{
+			return $this->eventHandler->handleDialogPositiveAnswer($event);
+		}
+
+		if( $event instanceof DialogNegativeAnswerEvent )
+		{
+			return $this->eventHandler->handleDialogNegativeAnswer($event);
+		}
+
+		return null;
 	}
 }

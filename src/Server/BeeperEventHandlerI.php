@@ -2,6 +2,7 @@
 namespace Zumba\Beeper\Server;
 
 
+use Zumba\Beeper\Server\Event\DialogNegativeAnswerEvent;
 use Zumba\Beeper\Server\Event\DialogPositiveAnswerEvent;
 
 interface BeeperEventHandlerI

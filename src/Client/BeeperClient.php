@@ -17,7 +17,6 @@ class BeeperClient implements LoggerAwareInterface
 	private $app_id;
 	private $api_key;
 	private $default_sender_id;
-	private $white_list;
 
 	public function __construct(Client $guzzle, $app_id, $api_key)
 	{

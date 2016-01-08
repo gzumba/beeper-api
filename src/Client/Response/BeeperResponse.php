@@ -20,7 +20,7 @@ class BeeperResponse
 
 	public function isSuccess()
 	{
-		return $this->status_code === 200;
+		return $this->status_code >= 200 && $this->status_code < 300;
 	}
 
 	public function getId()

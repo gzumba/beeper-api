@@ -4,6 +4,7 @@ namespace Zumba\Beeper\Client;
 use GuzzleHttp\Client;
 use GuzzleHttp\Psr7\Request;
 use Psr\Log\LoggerAwareInterface;
+use Zumba\Beeper\Client\Response\BeeperResponse;
 use Zumba\Log\LoggingI;
 use Zumba\Log\LoggingTrait;
 
@@ -62,7 +63,7 @@ class BeeperClient implements LoggerAwareInterface
 	 * @param $positive_button_text
 	 * @param $negative_button_text
 	 * @param string $sender_id
-	 * @return \Psr\Http\Message\ResponseInterface
+	 * @return BeeperResponse
 	 */
 	public function dialogSend($recipient, $text, $positive_button_text, $negative_button_text, $sender_id = null)
 	{
@@ -81,7 +82,7 @@ class BeeperClient implements LoggerAwareInterface
 
 		$response = $this->guzzle->send($request);
 
-		return json_decode($response->getBody(), true);
+		return new BeeperResponse($response->getStatusCode(), json_decode($response->getBody(), true));
 	}
 
 	/**

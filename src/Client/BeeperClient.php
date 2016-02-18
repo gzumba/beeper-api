@@ -33,7 +33,7 @@ class BeeperClient implements LoggerAwareInterface
 
 		$response = $this->guzzle->send($request);
 
-		return new BeeperResponse($response->getStatusCode(), json_decode($response->getBody(), true));
+		return new BeeperResponse($response->getStatusCode(), (array)json_decode($response->getBody(), true));
 	}
 
 	/**
@@ -57,7 +57,7 @@ class BeeperClient implements LoggerAwareInterface
 
 		$response = $this->guzzle->send($request);
 
-		return new BeeperResponse($response->getStatusCode(), json_decode($response->getBody(), true));
+		return new BeeperResponse($response->getStatusCode(), (array)json_decode($response->getBody(), true));
 	}
 
 	/**
@@ -85,7 +85,7 @@ class BeeperClient implements LoggerAwareInterface
 
 		$response = $this->guzzle->send($request);
 
-		return new BeeperResponse($response->getStatusCode(), json_decode($response->getBody(), true));
+		return new BeeperResponse($response->getStatusCode(), (array)json_decode($response->getBody(), true));
 	}
 
 	/**
@@ -113,7 +113,7 @@ class BeeperClient implements LoggerAwareInterface
 
 		$response = $this->guzzle->send($request);
 
-		return new BeeperResponse($response->getStatusCode(), json_decode($response->getBody(), true));
+		return new BeeperResponse($response->getStatusCode(), (array)json_decode($response->getBody(), true));
 	}
 
 	/**
@@ -137,7 +137,7 @@ class BeeperClient implements LoggerAwareInterface
 
 		$response = $this->guzzle->send($request);
 
-		return new BeeperResponse($response->getStatusCode(), json_decode($response->getBody(), true));
+		return new BeeperResponse($response->getStatusCode(), (array)json_decode($response->getBody(), true));
 	}
 
 	/**
@@ -165,7 +165,7 @@ class BeeperClient implements LoggerAwareInterface
 
 		$response = $this->guzzle->send($request);
 
-		return new BeeperResponse($response->getStatusCode(), json_decode($response->getBody(), true));
+		return new BeeperResponse($response->getStatusCode(), (array)json_decode($response->getBody(), true));
 	}
 
 	/**
@@ -189,7 +189,7 @@ class BeeperClient implements LoggerAwareInterface
 
 		$response = $this->guzzle->send($request);
 
-		return new BeeperResponse($response->getStatusCode(), json_decode($response->getBody(), true));
+		return new BeeperResponse($response->getStatusCode(), (array)json_decode($response->getBody(), true));
 	}
 
 	/**

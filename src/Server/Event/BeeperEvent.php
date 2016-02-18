@@ -34,4 +34,11 @@ abstract class BeeperEvent
 		return $this->id;
 	}
 
+	/**
+	 * @return array
+	 */
+	public function getData()
+	{
+		return $this->data;
+	}
 }

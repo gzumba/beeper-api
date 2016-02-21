@@ -16,20 +16,7 @@ class EventFactory implements LoggerAwareInterface
 
 	public function buildEvent(array $data)
 	{
-		if( !array_key_exists('event', $data) )
-		{
-			throw new \InvalidArgumentException("No event in data");
-		}
-
-		if( !array_key_exists('body', $data) )
-		{
-			throw new \InvalidArgumentException("No body in data");
-		}
-
-		if( !array_key_exists('message', $data['body']) )
-		{
-			throw new \InvalidArgumentException("No message in data body");
-		}
+		$this->validateData($data);
 
 		$message = $data['body']['message'];
 
@@ -42,6 +29,37 @@ class EventFactory implements LoggerAwareInterface
 			default:
 				$this->logWarn("Unsupported event {event}", ['event' => $data['event']]);
 				throw new \InvalidArgumentException("Unsupported event {$data['event']}");
+		}
+	}
+
+	/**
+	 * @param array $data
+	 */
+	private function validateData(array $data)
+	{
+		if( !array_key_exists('event', $data) )
+		{
+			throw new \InvalidArgumentException("No event in data");
+		}
+
+		if( !array_key_exists('body', $data) )
+		{
+			throw new \InvalidArgumentException("No body in data");
+		}
+
+		if( !is_array($data['body']) )
+		{
+			throw new \InvalidArgumentException("Body must be an array");
+		}
+
+		if( !array_key_exists('message', $data['body']) )
+		{
+			throw new \InvalidArgumentException("No message in data body");
+		}
+
+		if( !is_array($data['body']['message']) )
+		{
+			throw new \InvalidArgumentException('Message must be an array');
 		}
 	}
 
